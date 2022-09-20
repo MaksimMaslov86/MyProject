@@ -6,20 +6,27 @@ public class Task4 {
         Random ran = new Random();
         int[] array = new int[100];
         int index = 0;
-        int sum3 = 0;
-        int maxSum3 = 0;
+        int sum = 0;
+        int maxSum = 0;
         for (int i = 0; i < array.length; i++) {
             array[i] = ran.nextInt(10000);
         }
-        for (int j = 0; j < array.length-2; j++) {
-            sum3 = array[j] + array[j+1] + array[j+2];
-            if (sum3 > maxSum3) {
-                maxSum3 = sum3;
-                index = j;
+        int count = 3;
+        int counter = 1;
+        for (int j = 0; j < array.length - (count-1); j++) {
+            sum += array[j];
+
+            if (counter == count) {
+                if (sum > maxSum) {
+                    maxSum = sum;
+                    index = j - (count-1);
+                }
+                sum = 0;
+                counter = 0;
             }
-            sum3 = 0;
+            counter++;
         }
-        System.out.println(maxSum3 + ", " + index);
+        System.out.println(maxSum + ", " + index);
 
     }
 }
