@@ -27,7 +27,7 @@ class Player {
     private int stamina;
     final static int MIN_STAMINA = 0;
     final static int MAX_STAMINA = 100;
-    public static int countPlayer = 0;
+    static int countPlayer = 0;
 
     public Player(int stamina) {
         this.stamina = stamina;
